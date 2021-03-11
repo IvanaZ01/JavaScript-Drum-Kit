@@ -8,12 +8,10 @@ function playSound(e){
     audio.currentTime = 0
     audio.play()
     letter.classList.add("playing")
+    setTimeout(() => {
+        letter.classList.remove("playing")
+}, 60);
 }
 
-const allLetters = document.querySelectorAll('.key')
-allLetters.forEach(element => {
-    element.addEventListener('transitionend', function(e){
-        if(e.propertyName !== 'transform')return
-        this.classList.remove("playing")
-    })
-})
+
+
